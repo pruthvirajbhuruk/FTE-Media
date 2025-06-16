@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Clipping Services - Webnova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #0d0d0d;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    header {
+      background: radial-gradient(circle at center, #1f1f1f 0%, #000000 100%);
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 90deg, #ff00cc, #3333ff, #00ffcc, #ff00cc);
+      animation: spin 12s linear infinite;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    header h1 {
+      font-size: 3.5rem;
+      z-index: 1;
+      position: relative;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 1;
+      position: relative;
+    }
+    .hero-video {
+      max-width: 800px;
+      margin: 40px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+	.service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.fancy-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px 20px 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 255, 204, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fancy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 255, 204, 0.2);
+  border: 1px solid #00ffcc55;
+}
+
+.fancy-card h3 {
+  font-size: 1.25rem;
+  margin: 12px 0 8px;
+  color: #00ffcc;
+}
+
+.fancy-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #00ffcc55, #3333ff55);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+	
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 30px;
+      flex: 1 1 300px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+    
+	.cases {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 24px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.cases::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+	
+    .case {
+  margin-left: 240px;
+  scroll-snap-align: start;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 16px;
+  width: 200px;
+  flex: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.case:hover {
+  transform: translateY(-4px);
+}
+.case video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.case h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.case p {
+  font-size: 0.85rem;
+  text-align: center;
+  color: #ccc;
+}
+
+ .case1 {
+  scroll-snap-align: start;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 16px;
+  width: 200px;
+  flex: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.case1:hover {
+  transform: translateY(-4px);
+}
+.case1 video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+.case1 h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  text-align: center;
+}
+.case1 p {
+  font-size: 0.85rem;
+  text-align: center;
+  color: #ccc;
+}
+
+	
+	
+    .numbers {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      text-align: center;
+      gap: 30px;
+    }
+    .number-block {
+      flex: 1 1 200px;
+    }
+    .number-block h2 {
+      font-size: 3rem;
+      color: #00ffcc;
+    }
+    footer {
+      background: #000;
+      padding: 60px 20px;
+      text-align: center;
+      color: #888;
+	  border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+    }
+    footer h2 {
+      color: white;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background: linear-gradient(to right, #ff00cc, #3333ff);
+      border: none;
+      padding: 15px 30px;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+	
+	.hero-animation {
+  max-width: 1000px;
+  height: 300px;
+  margin: 60px auto;
+  background: linear-gradient(135deg, #0d0d0d, #111122);
+  border-radius: 40px;
+  box-shadow: 0 0 80px rgba(0, 255, 204, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 40px;
+}
+
+.ad-text-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  gap: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 900px;
+  line-height: 1.3;
+}
+
+.ad-word {
+  opacity: 0;
+  transform: translateY(30px) scale(0.9);
+  animation: dropIn 0.6s forwards;
+  text-shadow: 0 0 10px rgba(0,255,204,0.2), 0 0 20px rgba(255,0,204,0.1);
+}
+
+@keyframes dropIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ad-word.pop {
+  color: #00ffcc;
+  background: linear-gradient(to right, #00ffcc, #3333ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: dropIn 0.6s forwards, pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 8px #00ffcc40; }
+  100% { text-shadow: 0 0 16px #00ffccaa; }
+}
+
+@media screen and (max-width: 600px) {
+  .ad-text-container {
+    font-size: 1.4rem;
+  }
+}
+
+	.mheader {
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray-border);
+      position: sticky;
+      top: 0;
+      background-color: var(--primary);
+      z-index: 1000;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav .dropdown {
+      position: relative;
+    }
+
+    nav .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 120%;
+      left: 0;
+      background: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    nav .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    nav .dropdown-content a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+      white-space: nowrap;
+      color: var(--light);
+      text-decoration: none;
+    }
+
+    nav .dropdown-content a:hover {
+      background: #f1f5f9;
+    }
+
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #f1f5f9;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-dark {
+      background: var(--button-dark);
+      color: white;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-dark:hover {
+      opacity: 0.9;
+    }
+	
+	.mfooter {
+  background: #000;
+  color: #fff;
+  padding: 40px 20px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+
+  </style>
+</head>
+<body>
+
+	<div class="mheader" >
+    <div class="logo">FTE Media</div>
+    
+    <div class="nav-actions">
+      <button class="btn-dark">Get started</button>
+    </div>
+	
+	</div>
+	
+	
+  <header>
+    <h1>Transform Long Form Videos into Viral Shorts</h1>
+    <p>Maximize your content's value. Engage wider audiences. Boost conversions with short-form brilliance.</p>
+    <div class="hero-animation">
+  <div class="ad-text-container" id="ad-text-container">
+    <!-- Dynamic words will go here -->
+	
+  </div>
+</div>
+
+  </header>
+
+  <section>
+  <h2 style="text-align:center; margin-bottom:40px; font-size:2rem;">Our Clipping Services</h2>
+  <div class="service-cards">
+    <div class="card fancy-card fade-in">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="#00ffcc">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3v1.5m4.5-1.5v1.5M3 9.75h18M4.5 21h15M8.25 17.25v-3m7.5 3v-3M12 15v-1.5m0 0V9.75" />
+        </svg>
+      </div>
+      <h3>Short-Form Editing</h3>
+      <p>From podcasts to webinars — get crisp 30-90 sec edits ready for Instagram, TikTok, YouTube.</p>
+    </div>
+    <div class="card fancy-card fade-in">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="#00ffcc">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553 2.276a1 1 0 010 1.448L15 16m-6-6v6m6-6v6m0-6v6" />
+        </svg>
+      </div>
+      <h3>Auto Captions & Emojis</h3>
+      <p>Captions that pop. Emojis that grab attention. Designed to increase watch time.</p>
+    </div>
+    <div class="card fancy-card fade-in">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="#00ffcc">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8h6v6H3zm12 0h6v6h-6zm-6 6h6v6H9z" />
+        </svg>
+      </div>
+      <h3>Content Repurposing</h3>
+      <p>Turn a single long video into 10+ short assets across all platforms.</p>
+    </div>
+    <div class="card fancy-card fade-in">
+      <div class="icon-box">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="#00ffcc">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3>Posting & Scheduling</h3>
+      <p>We don’t just edit — we post. Done-for-you distribution included.</p>
+    </div>
+  </div>
+</section>
+
+
+  <section>
+  <h2 style="text-align:center; font-size:2rem; margin-bottom:20px;">Case Studies</h2>
+  <div class="cases">
+    <div class="case">
+      <video autoplay muted loop playsinline>
+        <source src="ad1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Whop Platform</h3>
+      <p>Grew from 2K average views to 120K average views in 17 days with daily reels edited by us.</p>
+    </div>
+    <div class="case1">
+      <video autoplay muted loop playsinline>
+        <source src="ad2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>AI Software</h3>
+      <p>Generated $3K+ in new revenue from clipped recordings.</p>
+    </div>
+    <div class="case1">
+      <video autoplay muted loop playsinline>
+        <source src="ad3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <h3>Tech YouTuber</h3>
+      <p>Increased watch rate by 75% with dynamic subtitles and jump-cuts.</p>
+    </div>
+	
+  </div>
+</section>
+
+
+
+  <section>
+    <h2 style="text-align:center; margin-bottom:40px; font-size:2rem;">Why It Works</h2>
+    <div class="numbers">
+      <div class="number-block">
+        <h2>+350%</h2>
+        <p>Higher Engagement</p>
+      </div>
+      <div class="number-block">
+        <h2>+10x</h2>
+        <p>Content Output</p>
+      </div>
+      <div class="number-block">
+        <h2>+75%</h2>
+        <p>Brand Visibility</p>
+      </div>
+      <div class="number-block">
+        <h2>+120K</h2>
+        <p>Audience Growth</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="text-align:center; font-size:2rem; margin-bottom:20px;">Your Videos. We Clip. You Grow.</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">Let us handle the editing magic while you stay focused on your craft. Our clients see growth, engagement, and sales — all from existing video content.</p>
+  </section>
+
+  <footer>
+    <h2>Let’s Clip and Convert</h2>
+    <button class="cta-button">Start Your First Edit</button>
+    <p style="margin-top:40px; font-size:0.9rem;">© 2025 FTE Media</p>
+    
+  </footer>
+  
+ 
+  
+  <script>
+const lines = [
+  "Imagine getting leads sales and followers from your old videos",
+  "We turn long form content into viral short form magic",
+  "With captions emojis hooks and daily posting",
+  "Grow your brand traffic and conversions effortlessly",
+  "Your Videos. we clip and you grow — fast"
+];
+
+let lineIndex = 0;
+const container = document.getElementById('ad-text-container');
+
+function animateLine(line) {
+  container.innerHTML = '';
+  const words = line.split(" ");
+  words.forEach((word, i) => {
+    const span = document.createElement("span");
+    span.className = 'ad-word';
+    if (i === 2 || i === 5 || i === words.length - 1) span.classList.add('pop');
+    span.textContent = word;
+    span.style.animationDelay = `${i * 0.2}s`;
+    container.appendChild(span);
+  });
+}
+
+function loopLines() {
+  animateLine(lines[lineIndex]);
+  lineIndex = (lineIndex + 1) % lines.length;
+  setTimeout(loopLines, 4000);
+}
+
+document.addEventListener("DOMContentLoaded", loopLines);
+</script>
+
+
+
+</body>
+</html>
