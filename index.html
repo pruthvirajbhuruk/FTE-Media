@@ -436,6 +436,39 @@
  color:white;
 }
 
+
+	  .side-tab {
+  position: fixed;
+  top: 50%;
+  right: -140px;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #00ffcc, #3333ff);
+  color: white;
+  font-weight: bold;
+  padding: 14px 20px;
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: right 0.4s ease;
+  z-index: 2000;
+}
+.side-tab:hover {
+  right: 0;
+}
+.tab-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.tab-icon {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
   </style>
 </head>
 <body>
@@ -564,6 +597,14 @@
     <h2 style="text-align:center; font-size:2rem; margin-bottom:20px;">Your Videos. We Clip. You Grow.</h2>
     <p style="text-align:center; max-width:700px; margin:auto;">Let us handle the editing magic while you stay focused on your craft. Our clients see growth, engagement, and sales — all from existing video content.</p>
   </section>
+
+	<!-- Slide-out box for Website Design -->
+<div class="side-tab" onclick="window.location.href='website.html'">
+  <div class="tab-content">
+    <img src="https://img.icons8.com/?size=512&id=108784&format=png" alt="Web" class="tab-icon">
+    <span>Website Design</span>
+  </div>
+</div>
 
   <footer>
     <h2>Let’s Clip and Convert</h2>
